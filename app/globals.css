@@ -1,0 +1,282 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Hide Next.js badge and error messages */
+body > nextjs-portal {
+  display: none;
+}
+
+/* Enhanced 3D Gym Styles */
+@layer base {
+  body {
+    perspective: 1000px;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  /* 3D Gym Equipment Shadows */
+  .gym-shadow {
+    box-shadow: 
+      0 10px 25px rgba(255, 107, 53, 0.1),
+      0 20px 50px rgba(0, 212, 255, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Gym Energy Glow Effect */
+  .gym-glow {
+    position: relative;
+  }
+  
+  .gym-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #FF6B35, #00D4FF, #FF6B35);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .gym-glow:hover::before {
+    opacity: 0.3;
+    animation: gym-pulse 2s ease-in-out infinite;
+  }
+
+  /* Metal Texture for Gym Equipment */
+  .metal-texture {
+    background: linear-gradient(135deg, #666 0%, #999 50%, #666 100%);
+    position: relative;
+  }
+  
+  .metal-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 1px,
+        rgba(255, 255, 255, 0.1) 1px,
+        rgba(255, 255, 255, 0.1) 2px
+      );
+    border-radius: inherit;
+  }
+
+  /* 3D Floating Animation */
+  .float-3d {
+    animation: float3d 6s ease-in-out infinite;
+  }
+
+  /* Gym Equipment Hover Transform */
+  .gym-equipment:hover {
+    transform: 
+      perspective(1000px) 
+      rotateY(15deg) 
+      rotateX(10deg) 
+      translateZ(20px) 
+      scale(1.05);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Energy Particles */
+  .energy-particle {
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #FF6B35 0%, transparent 70%);
+    border-radius: 50%;
+    animation: energyParticle 3s linear infinite;
+  }
+
+  /* Gym Atmosphere Background */
+  .gym-atmosphere {
+    background: 
+      radial-gradient(ellipse at top, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+      linear-gradient(180deg, #0F0F0F 0%, #1A1A1A 100%);
+  }
+}
+
+@layer utilities {
+  /* 3D Transform Utilities */
+  .transform-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .perspective-gym {
+    perspective: 1500px;
+  }
+  
+  .backface-invisible {
+    backface-visibility: hidden;
+  }
+
+  /* Gym Text Effects */
+  .text-gym-glow {
+    text-shadow: 
+      0 0 10px rgba(255, 107, 53, 0.5),
+      0 0 20px rgba(255, 107, 53, 0.3),
+      0 0 30px rgba(255, 107, 53, 0.1);
+  }
+
+  .text-energy {
+    background: linear-gradient(45deg, #FF6B35, #00D4FF, #FF6B35);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: energyFlow 3s ease-in-out infinite;
+  }
+}
+
+/* Custom Keyframe Animations */
+@keyframes float3d {
+  0%, 100% { 
+    transform: translateY(0) rotateY(0deg) rotateX(0deg); 
+  }
+  25% { 
+    transform: translateY(-20px) rotateY(5deg) rotateX(2deg); 
+  }
+  50% { 
+    transform: translateY(-10px) rotateY(-3deg) rotateX(-1deg); 
+  }
+  75% { 
+    transform: translateY(-15px) rotateY(2deg) rotateX(1deg); 
+  }
+}
+
+@keyframes gym-pulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.3; 
+  }
+  50% { 
+    transform: scale(1.05); 
+    opacity: 0.6; 
+  }
+}
+
+@keyframes energyParticle {
+  0% { 
+    transform: translateY(0) scale(0); 
+    opacity: 0; 
+  }
+  10% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+  90% { 
+    opacity: 1; 
+  }
+  100% { 
+    transform: translateY(-100px) scale(0); 
+    opacity: 0; 
+  }
+}
+
+@keyframes energyFlow {
+  0%, 100% { 
+    background-position: 0% 50%; 
+  }
+  50% { 
+    background-position: 100% 50%; 
+  }
+}
+
+/* Responsive 3D Effects */
+@media (prefers-reduced-motion: reduce) {
+  .float-3d,
+  .gym-equipment,
+  .energy-particle {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* High-performance GPU Acceleration */
+.gpu-accelerated {
+  will-change: transform;
+  transform: translateZ(0);
+}
